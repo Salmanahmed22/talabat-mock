@@ -8,4 +8,6 @@ const validator = require('validator');
     validator.body('phoneNumbwe', 'phone number is required to be the correct format (Egypt Code)').isMobilePhone("ar-EG"),
     validator.body('vehicle', 'vehicle must be either car, motorcycle, bicycle or on_foot').isIn(['car', 'motorcycle', 'bicycle', 'on_foot']),
 ]
+
+module.exports = createDriver
  

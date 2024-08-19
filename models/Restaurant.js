@@ -14,6 +14,10 @@ const restaurantSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    logoUrl: {
+      type: String,
+      default: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
+    },
     category: {
       type: [String],
       required: true,
@@ -22,10 +26,9 @@ const restaurantSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    menu: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Menu",
-    },
+    menuItems: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "MenuItem", default: [] },
+    ],
   },
   { timestamps: true }
 );
