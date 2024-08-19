@@ -5,7 +5,7 @@ const connectDB = require('./config/db');
 
 app.use(express.json());
 
-// connect to db
+//TODO: handle async errors
 connectDB();
 
 const port = config.PORT || 5000;
