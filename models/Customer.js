@@ -18,6 +18,10 @@ const customerSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    phoneNumber: {
+        type: String,
+        required: true
+    },
     addresses:[ {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Address'
