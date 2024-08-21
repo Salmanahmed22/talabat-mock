@@ -3,5 +3,5 @@ const restaurantController = require('../controllers/restaurantController');
 const router = require('express').Router();
 
 router.post('/signup',createRestaurantValidator, restaurantController.signup);
-// router.post('/login', restaurantController.login);
+router.post('/login', restaurantController.login);
 module.exports = router
