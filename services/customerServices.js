@@ -8,7 +8,6 @@ const signup = async (firstName, lastName, email, password, phoneNumber)=>{
     try{
         const token = jwt.sign({firstName, lastName, email, password, phoneNumber}, config.jwt.secret, {expiresIn: '1h'});
         const customer = await customerRepo.createCustomer(firstName, lastName, email, password, phoneNumber);
-        console.log(":) customer created: service", customer);
         return {customer, token};
     }catch(error){
         throw error;

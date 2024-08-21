@@ -10,8 +10,6 @@ const createCustomer = async (firstName, lastName, email, password, phoneNumber)
             phoneNumber
         });
         await customer.save();
-        console.log(":) customer created: repo", customer);
-        
         return customer;
     } catch (error) {
         throw error;
