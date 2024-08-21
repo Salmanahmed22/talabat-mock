@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const customerSchema = new mongoose.Schema(
     {
@@ -51,6 +52,15 @@ const customerSchema = new mongoose.Schema(
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Order'
     }]
+})
+
+customerSchema.pre('save', async function(next){
+  if(this.isModified('password') || this.isNew){
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(this.password, salt);
+    this.password = hashedPassword;
+    next();
+  }
 })
 
 const Customer = mongoose.model("Customer", customerSchema,);
